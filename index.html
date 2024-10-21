@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheska Website</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to the external CSS file -->
+    <script>
+        function showSection(sectionId, link) {
+            // Hide all content sections
+            const sections = document.querySelectorAll('.content');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Show the selected section
+            const activeSection = document.getElementById(sectionId);
+            activeSection.classList.add('active');
+
+            // Change the background image based on the section
+            const body = document.body; // Get the body element
+            switch (sectionId) {
+                case 'about':
+                    body.style.backgroundImage = 'url("imgs/me.png")'; // Change to your About image
+                    break;
+                case 'hometown':
+                    body.style.backgroundImage = 'url("imgs/hmtwn.png")'; // Change to your Hometown image
+                    break;
+                case 'interests':
+                    body.style.backgroundImage = 'url("imgs/intrsts.png")'; // Change to your Interests image
+                    break;
+                default:
+                    body.style.backgroundImage = 'url("imgs/bg.jpg")'; // Reset background for Home
+            }
+
+            // Hide or show the header based on the section
+            const header = document.querySelector('header');
+            if (sectionId === 'about' || sectionId === 'hometown' || sectionId === 'interests') {
+                header.style.display = 'none'; // Hide the header for specific sections
+            } else {
+                header.style.display = 'block'; // Show the header for Home
+            }
+
+            // Remove active class from all nav links
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(nav => {
+                nav.classList.remove('active-link');
+            });
+
+            // Add active class to the clicked link
+            link.classList.add('active-link');
+        }
+    </script>
+</head>
+<body>
+
+    <header>
+        <h1>WHO IS CHESKA?</h1>
+    </header>
+
+    <nav>
+        <a href="#" onclick="showSection('home', this)">Home</a>
+        <a href="#" onclick="showSection('about', this)">About Me</a>
+        <a href="#" onclick="showSection('hometown', this)">Hometown</a>
+        <a href="#" onclick="showSection('interests', this)">Interests</a>
+    </nav>
+
+    <div id="home" class="content active">
+        <h2 class="welcome">Welcome to my website!</h2>
+        <p>Here you can know more about me.</p>
+    </div>
+
+    <div id="about" class="content">
+        <div class="about-content"> <!-- Added a div with class for styling -->
+            <p>Hey there! I’m Franchesca R. Esteras, most prefered to be called as "Cheska" and I’m currently a second-year college student at the University of Makati,
+            diving into the exciting world of technology with my Diploma in Application Development! <br>
+            This is my website where you can get to know me, my hometown, and my interests; feel free to explore it. <br>
+            </p>
+        </div>
+    </div>
+
+    <div id="hometown" class="content">
+        <div class="hometown-content"> <!-- Use the specific class for styling -->
+            <p>Baguio City, known as the "Summer Capital of the Philippines," was established in 1900 by the American colonial government as a hill station, 
+                derived from the Igorot word "bagiw," meaning "moss." A fun fact about Baguio is that it is home to the Philippines' only Whispering Pine trees, 
+                which produces a unique whisper-like sound when the wind rustles through its leaves. I was born and raised in Baguio City and I proudly represent my hometown not just because it is known as the "Summer Capital of the Phillippines," 
+                I proudly represent Baguio because of its friendly and hospitable people, the vibrant culture showcased in its festivals and traditions, and the beautiful sceneries that include stunning parks and breathtaking mountain views;
+                of course, the cool weather is a delightful bonus that makes my visits even more enjoyable. 
+            </p>
+        </div>
+    </div>
+
+    <div id="interests" class="content">
+        <div class="interests-content"> <!-- Added a div with class for styling -->
+            <p>In my free time, I enjoy indulging in various creative pursuits, such as crocheting unique keychains and coasters,
+            along with any other delightful projects that spark my interest. Additionally, I find great joy in cooking, experimenting with 
+            new recipes and flavors. I also have a keen interest in editing, whether it involves photo or video editing. I often create logos 
+            and invitations, and I love editing videos to transform them into engaging reels. Sometimes, my partner and I escape the hustle 
+            and bustle of city life by venturing into the serene mountains, where we unwind and reconnect with nature,appreciating the breathtaking scenery.
+            </p>
+        </div>
+    </div>
+
+    
+</body>
+</html>
